@@ -37,14 +37,14 @@ def create_simple_bar():
     # print(result[0])
     l=[]
     for k,v in result[0].items():
-        # print(v)
+        print(v)
         if k in case.keys():
             casename.append(case[k])
         l.append(v)
 
-    # print(l[2:])
-    # print(casename)
-    # print(case.keys())
+    print(l[2:])
+    print(casename)
+    print(case.keys())
     db.close()
 
 

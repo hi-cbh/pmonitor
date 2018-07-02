@@ -57,7 +57,7 @@ class DB:
         key = key + "='%d'"
         # print(tuple(table_data.values()))
         real_sql = "UPDATE " + table_name + " SET " + key %tuple(table_data.values())
-        # print(real_sql)
+        print(real_sql)
 
         with self.connection.cursor() as cursor:
             cursor.execute(real_sql)
