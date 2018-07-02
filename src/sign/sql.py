@@ -10,6 +10,10 @@ user="root"
 password="12345678"
 db="monitor"
 
+
+
+
+
 class DB:
 
     def __init__(self):
