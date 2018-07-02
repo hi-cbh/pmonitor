@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Django Echarts Demo</title>
+    {% block  include_css %}
+        <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    {% endblock %}
+    {% block extra_css %}
+    {% endblock %}
+
+</head>
+<body>
+
+
+<nav class="navbar navbar-default">
+    <div class="container">
+
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+    {% block main_content %}
+    {% endblock %}
+
+    <hr>
+
+    <footer>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <p>&copy; 2017-2018, Powered by Django-Echarts</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+<!--/.container-->
+{% block include_script %}
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block extra_script %}
+{% endblock %}
+
+</body>
+</html>
