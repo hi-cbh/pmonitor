@@ -52,7 +52,7 @@ def create_simple_bar():
 
 
     # X_AXIS = ["一键登录", "账号登录", "无附发送", "有附发送", "云端转发", "SMTP转发","回复","139精选","发现主页","彩云网盘","个人资料","联系人同步","日历","推送","下载附件"]
-    bar = Bar("记录连续错误测试", "这里更新时间戳")
+    bar = Bar("记录连续错误测试", "数据更新: "+l[1])
     bar.add("错误次数",casename , l[2:],bar_category_gap="20%",xaxis_interval=0)
 
     bar.renderer = 'svg'

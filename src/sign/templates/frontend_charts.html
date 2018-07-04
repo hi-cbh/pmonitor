@@ -15,36 +15,6 @@
     <script src="https://cdn.bootcss.com/echarts/3.8.5/echarts.min.js"></script>
     <script src="http://echarts.baidu.com/asset/map/js/china.js"></script>
     <script type="text/javascript">
-
-//        var mChart;
-//        function loadEcharts(name) {
-//            var url = '/options/' + name + '/';
-//            if (mChart != null) {
-//                mChart.clear();
-//            }
-//            mChart = echarts.init(document.getElementById('id_echarts_container'));
-//            mChart.showLoading();
-//            $.ajax({
-//                url: url,
-//                type: "GET",
-//                data: null,
-//                dataType: "json"
-//            }).done(function (data) {
-////                console.info(data)
-//                mChart.hideLoading();
-//                mChart.setOption(data);
-//                console.log(data);
-//            });
-//        }
-//
-//        $(document).ready(function () {
-//            $('a[data-echarts-name]').on('click', function () {
-//                var name = $(this).data('echartsName');
-//                loadEcharts(name);
-//            });
-//            loadEcharts('simpleBar');
-//        });
-//
         function run(){
             var mChart;
             function loadEcharts(name) {
@@ -75,7 +45,7 @@
                 loadEcharts('simpleBar');
             });
             //定时刷新页面 秒 * 1000
-            setTimeout("run()", 10*60*1000);
+            setTimeout("run()", 2*60*1000);
         }
         run();
 
