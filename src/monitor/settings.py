@@ -25,7 +25,7 @@ SECRET_KEY = '9td+rjgm+2h3*jl!)-wct5&dzp(0o=n-92%fy&cl#duq$f)nt%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','192.168.10.12']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -80,13 +80,26 @@ WSGI_APPLICATION = 'monitor.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST' : '127.0.0.1',
+        'PROT' : '3306',
+        'NAME' : 'monitor',
+        'USER' : 'root',
+        'PASSWORD' : '123456',
+        'OPTIONS' : {
+             "init_command": "SET foreign_key_checks=0;",
+            },
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
