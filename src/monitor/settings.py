@@ -101,6 +101,22 @@ DATABASES = {
     }
 }
 
+'''
+
+
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST' : os.environ.get('MYSQL_PORT_3306_TCP_ADDR'),
+        'NAME' : os.environ.get('MYSQL_DATABASE_NAME'),
+        'PROT' : os.environ.get('MYSQL_PORT_3306_TCP_PORT'),
+        'USER' : 'root',
+        'PASSWORD' : os.environ.get('MYSQL_ENV_MYSQL_ROOT_PASSWORD'),
+        'OPTIONS' : {
+             "init_command": "SET foreign_key_checks=0;",
+        },
+
+
+'''
+
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
