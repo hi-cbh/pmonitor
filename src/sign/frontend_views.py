@@ -15,4 +15,6 @@ class SimpleBarView(EChartsFrontView):
         return FACTORY.create('bar')
 
 
-
+class SimpleKLineView(EChartsFrontView):
+    def get_echarts_instance(self, **kwargs):
+        return FACTORY.create('kline')
