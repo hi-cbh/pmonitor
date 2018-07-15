@@ -3,17 +3,16 @@
 {% block main_content %}
 
 <div class="row row-offcanvas row-offcanvas-right">
-    <div class="col-xs-1 col-sm-1 sidebar-offcanvas" id="sidebar">
-        <div class="list-group">
-            <a href="javascript:" class="list-group-item" data-echarts-name="simpleBar">实时</a>
-            <a href="javascript:" class="list-group-item" data-echarts-name="simpleKLine">汇总</a>
-        </div>
-    </div>
-
-
+    <!--<div class="col-xs-1 col-sm-1 sidebar-offcanvas" id="sidebar">-->
+        <!--<div class="list-group">-->
+            <!--<a href="javascript:" class="list-group-item" data-echarts-name="simpleBar">实时</a>-->
+            <!--<a href="javascript:" class="list-group-item" data-echarts-name="simpleKLine">汇总</a>-->
+        <!--</div>-->
+    <!--</div>-->
 
     <div class="col-xs-12 col-sm-10">
-        <div id="id_echarts_container" style="height: 500px;width: 1100px"></div>
+        <div id="id_echarts_container" style="height: 300px;width: 1200px"></div>
+        <div id="id_echarts_container2" style="height: 300px;width: 1200px"></div>
 
     </div>
 </div>
@@ -28,6 +27,7 @@
     <script type="text/javascript">
         function run(){
             var mChart;
+
             function loadEcharts(name) {
                 var url = '/options/' + name + '/';
                 if (mChart != null) {
@@ -47,13 +47,34 @@
                     console.log(data);
                 });
             }
-
+            var mChart2;
+            function loadEcharts2(name) {
+                var url = '/options/' + name + '/';
+                if (mChart2 != null) {
+                    mChart2.clear();
+                }
+                mChart2 = echarts.init(document.getElementById('id_echarts_container2'));
+                mChart2.showLoading();
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    data: null,
+                    dataType: "json"
+                }).done(function (data) {
+//                console.info(data)
+                    mChart2.hideLoading();
+                    mChart2.setOption(data);
+                    console.log(data);
+                });
+            }
             $(document).ready(function () {
                 $('a[data-echarts-name]').on('click', function () {
                     var name = $(this).data('echartsName');
                     loadEcharts(name);
+                    loadEcharts2(name);
                 });
                 loadEcharts('simpleBar');
+                loadEcharts2('simpleKLine');
             });
             //定时刷新页面 秒 * 1000
             setTimeout("run()", 2*60*1000);

@@ -63,8 +63,8 @@ def create_simple_bar():
     #print(casename)
     # print(case.keys())
 
-    bar = Bar("连续错误", "数据更新: "+l[0])
-    bar.add("错误次数",casename , l[1:],bar_category_gap="20%",xaxis_interval=0)
+    bar = Bar("连续错误", "最近更新: "+l[0])
+    bar.add("次数",casename , l[1:],bar_category_gap="20%",xaxis_interval=0)
 
     bar.renderer = 'svg'
     return bar
@@ -107,8 +107,8 @@ def create_simple_kline():
     #print(casename)
     # print(case.keys())
 
-    bar = Bar("汇总", "数据更新: "+l[0])
-    bar.add("错误次数",casename , l[1:],bar_category_gap="20%",xaxis_interval=0)
+    bar = Bar("错误累计", "最近更新: "+l[0])
+    bar.add("次数",casename , l[1:],bar_category_gap="20%",xaxis_interval=0)
 
     bar.renderer = 'svg'
     return bar

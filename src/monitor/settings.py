@@ -87,23 +87,23 @@ WSGI_APPLICATION = 'monitor.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'HOST' : '127.0.0.1',
+#         'PROT' : '3306',
+#         'NAME' : 'monitor',
+#         'USER' : 'root',
+#         'PASSWORD' : '123456',
+#         'OPTIONS' : {
+#             "init_command": "SET foreign_key_checks=0;",
+#         },
+#     }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST' : '127.0.0.1',
-        'PROT' : '3306',
-        'NAME' : 'monitor',
-        'USER' : 'root',
-        'PASSWORD' : '123456',
-        'OPTIONS' : {
-             "init_command": "SET foreign_key_checks=0;",
-            },
-    }
-}
-
-'''
-
-
         'ENGINE': 'django.db.backends.mysql',
         'HOST' : os.environ.get('MYSQL_PORT_3306_TCP_ADDR'),
         'NAME' : os.environ.get('MYSQL_DATABASE_NAME'),
@@ -111,11 +111,12 @@ DATABASES = {
         'USER' : 'root',
         'PASSWORD' : os.environ.get('MYSQL_ENV_MYSQL_ROOT_PASSWORD'),
         'OPTIONS' : {
-             "init_command": "SET foreign_key_checks=0;",
+            "init_command": "SET foreign_key_checks=0;",
         },
+    }
+}
 
 
-'''
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
