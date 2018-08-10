@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-
+from django.conf.urls import include
 from sign import frontend_views
 
 urlpatterns = [
@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^$', frontend_views.FrontendEchartsTemplate.as_view(), name='frontend_demo'),
     url(r'options/simpleBar/', frontend_views.SimpleBarView.as_view()),
     url(r'options/simpleKLine/', frontend_views.SimpleKLineView.as_view()),
+    url(r'test/', include('sign.urls'))
 ]

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>功能拨测-每小时错误情况</title>
+{% for jsfile_name in script_list %}
+<script src="{{host}}/{{jsfile_name}}.js"></script>
+{% endfor %}
+
+{% block  include_css %}
+<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+{% block extra_css %}
+{% endblock %}
+</head>
+
+<body>
+
+<nav class="navbar navbar-default">
+</nav>
+
+
+<div class="row row-offcanvas row-offcanvas-right">
+<div class="col-xs-1 col-sm-1 sidebar-offcanvas" id="sidebar">
+<div class="list-group">
+<a href="/" class="list-group-item" data-echarts-name="simpleBar">实时</a>
+<a href="/test/" class="list-group-item" >time</a>
+</div>
+</div>
+</div>
+
+
+{{myechart|safe}}
+
+</body>
+
+</html>

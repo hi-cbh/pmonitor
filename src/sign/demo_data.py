@@ -3,7 +3,7 @@
 from pyecharts import Bar
 from sign.models import Case
 from sign.models import Error
-
+from pyecharts import Bar3D,Page
 class ChartFactory:
     def __init__(self):
         self._func = {}
@@ -93,7 +93,7 @@ def create_simple_kline():
     new_case["testcasepersionmessages"] = case_list[0].testcasepersionmessages
     new_case["testcaseskydrive"] = case_list[0].testcaseskydrive
 
-    print("------------------------")
+    # print("------------------------")
 
     case={'testcaseonbtnlogin': "一键登录", 'testcaselogin': "账号登录", 'testcasesendnoattach': "无附发送", 'testcasesendattach': "有附发送", 'testcasefwdsend': "云端转发", 'testcaseforward': "SMTP转发", 'testcasereply': "回复", 'testdownfile': "下载附件", 'testcasecheckaddresslist': "联系人同步", 'testcaseselected': "139精选", 'testcasepush': "推送", 'testcasecalendar': "日历", 'testcasediscover': "发现主页", 'testcasepersionmessages': "个人资料", 'testcaseskydrive': "彩云网盘"}
     casename=[]   # 用例名称
@@ -112,3 +112,5 @@ def create_simple_kline():
 
     bar.renderer = 'svg'
     return bar
+
+
