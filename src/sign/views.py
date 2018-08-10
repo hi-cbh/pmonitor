@@ -69,7 +69,7 @@ def line3d():
 
 
 
-    bar3d = Bar3D("错误分布图", width=1200, height=500)
+    bar3d = Bar3D("错误分布图", width=1200, height=700)
     x_axis = casetime
 
     y_axis = casename

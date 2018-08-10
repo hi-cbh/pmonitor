@@ -10,20 +10,23 @@
         </div>
     </div>
 
-    <div class="col-xs-12 col-sm-10">
-        {% for jsfile_name in script_list %}
-        <script src="{{host}}/{{jsfile_name}}.js"></script>
-        {% endfor %}
+    <div class="col-xs-12 col-sm-10" style="height: 600px;width: 1200px">
+        <!--<div style="height: 300px;width: 1200px">-->
+            {% for jsfile_name in script_list %}
+            <script src="{{host}}/{{jsfile_name}}.js"></script>
+            {% endfor %}
 
-        {% block  include_css %}
-        <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-        {% endblock %}
-        {% block extra_css %}
-        {% endblock %}
 
-        {{myechart|safe}}
 
+            {{myechart|safe}}
+        <!--</div>-->
     </div>
+    {% block  include_css %}
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    {% endblock %}
+    {% block extra_css %}
+    {% endblock %}
+
 </div>
 
 {% endblock %}
