@@ -25,6 +25,22 @@ class ChartFactory:
 
 FACTORY = ChartFactory()
 
+
+def sort_dict(dict_words,reverse=False):
+    """
+    字典排序
+    :param dict_words:
+    :return:
+    """
+    keys = dict_words.keys()
+    values = dict_words.values()
+
+    list_one = [(key, val) for key, val in zip(keys, values)]
+    list_sort = sorted(list_one, key=lambda x: x[1], reverse=reverse)
+
+    return dict(list_sort)
+
+
 @FACTORY.collect('bar')
 def create_simple_bar():
     print("------------------------")
@@ -63,8 +79,21 @@ def create_simple_bar():
     #print(casename)
     # print(case.keys())
 
+    new_dict = {}
+    num = 1
+    for case in casename:
+        new_dict[case] = l[num]
+        num = num + 1
+
+    new_dict = sort_dict(new_dict,True)
+
+    new_casename = [name for name in new_dict.keys()]
+    new_list = [value for value in new_dict.values()]
+
+
     bar = Bar("连续错误", "最近更新: "+l[0])
-    bar.add("次数",casename , l[1:],bar_category_gap="20%",xaxis_interval=0)
+    # bar.add("次数",casename , l[1:],bar_category_gap="20%",xaxis_interval=0)
+    bar.add("次数",new_casename , new_list,bar_category_gap="20%",xaxis_interval=0)
 
     bar.renderer = 'svg'
     return bar
@@ -107,8 +136,20 @@ def create_simple_kline():
     #print(casename)
     # print(case.keys())
 
+    new_dict = {}
+    num = 1
+    for case in casename:
+        new_dict[case] = l[num]
+        num = num + 1
+
+    new_dict = sort_dict(new_dict,False)
+
+    new_casename = [name for name in new_dict.keys()]
+    new_list = [value for value in new_dict.values()]
+
     bar = Bar("错误累计", "最近更新: "+l[0])
-    bar.add("次数",casename , l[1:],bar_category_gap="20%",xaxis_interval=0)
+    # bar.add("次数",casename , l[1:],bar_category_gap="30%",is_convert=True,yaxis_interval=0)
+    bar.add("次数",new_casename , new_list,bar_category_gap="30%",is_convert=True,yaxis_interval=0)
 
     bar.renderer = 'svg'
     return bar

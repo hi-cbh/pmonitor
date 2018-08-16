@@ -55,14 +55,16 @@ def line3d():
     num = 0
     for k in new_case.keys():
         for y in range(24):
-            _data.append([num, y,new_case[k][y]])
-
+            if y == 23:
+                _data.append([num, 0,new_case[k][y]])
+            else:
+                _data.append([num, y+1,new_case[k][y]])
         num = num + 1
 
 
     case={'testcaseonbtnlogin': "一键登录", 'testcaselogin': "账号登录", 'testcasesendnoattach': "无附发送", 'testcasesendattach': "有附发送", 'testcasefwdsend': "云端转发", 'testcaseforward': "SMTP转发", 'testcasereply': "回复", 'testdownfile': "下载附件", 'testcasecheckaddresslist': "联系人同步", 'testcaseselected': "139精选", 'testcasepush': "推送", 'testcasecalendar': "日历", 'testcasediscover': "发现主页", 'testcasepersionmessages': "个人资料", 'testcaseskydrive': "彩云网盘"}
     casename = [case[k]  for k in new_case.keys()]
-    casetime = [str(x) for x in range(24)]
+    casetime = [str(x) for x in range(0,24)]
     # print(_data)
 
     # print("testdata--------")
